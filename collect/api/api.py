@@ -13,13 +13,25 @@ def bus_gen_url(endpoint=ENDPOINT, service_key=SERVICE_KEY, **params):
     return url
 
 
-def bus_fetch_info(busRouteId=""):
+def bus_fetch_basic_info(busRouteId=""):
     url = bus_gen_url(
         busRouteId=busRouteId,
         _type='json'
     )
     #print(url)
-    #json_result = json_request(url=url)
-    #print(json_result)
+    json_result = json_request(url=url)
+    print(json_result)
+
+
+def bus_fetch_get_bus_route_list(busRouteId=""):
+    ENDPOINT = "http://ws.bus.go.kr/api/rest/busRouteInfo/getBusRouteList"
+    url = bus_gen_url(
+        endpoint=ENDPOINT,
+        busRouteId=busRouteId,
+        _type='json'
+    )
+    #print(url)
+    json_result = json_request(url=url)
+    print(json_result)
 
 
